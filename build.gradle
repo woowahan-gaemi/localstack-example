@@ -1,0 +1,59 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springbootVersion}")
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    group = 'io.github.woowabros'
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = '1.8'
+
+    configurations {
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springcloudVersion}"
+            mavenBom "org.junit:junit-bom:${junit5Version}"
+        }
+        dependencies {
+            dependency "cloud.localstack:localstack-utils:${localstackVersion}"
+            dependency "org.testcontainers:localstack:${testcontainerVersion}"
+        }
+    }
+
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+        testImplementation("org.springframework.boot:spring-boot-starter-test") {
+            exclude module: 'junit'
+        }
+        testImplementation("org.junit.jupiter:junit-jupiter-api")
+        testImplementation("org.junit.jupiter:junit-jupiter-params")
+        testRuntime("org.junit.jupiter:junit-jupiter-engine")
+    }
+
+    test {
+        useJUnitPlatform {
+            includeEngines "junit-jupiter"
+        }
+    }
+}
+

@@ -1,0 +1,5 @@
+dependencies {
+    implementation("cloud.localstack:localstack-utils")
+    implementation("org.testcontainers:localstack")
+    implementation("com.amazonaws:aws-java-sdk-s3")
+}
