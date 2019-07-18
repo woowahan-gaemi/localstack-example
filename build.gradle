@@ -35,18 +35,30 @@ subprojects {
         dependencies {
             dependency "cloud.localstack:localstack-utils:${localstackVersion}"
             dependency "org.testcontainers:localstack:${testcontainerVersion}"
+            dependency "org.testcontainers:junit-jupiter:${testcontainerVersion}"
+            dependency "commons-io:commons-io:${commonsioVersion}"
+            dependency "com.github.derjust:spring-data-dynamodb:${springdataDynamodbVersion}"
         }
     }
 
     dependencies {
-        implementation 'org.springframework.boot:spring-boot-starter-web'
-        compileOnly 'org.projectlombok:lombok'
-        annotationProcessor 'org.projectlombok:lombok'
-        testCompileOnly 'org.projectlombok:lombok'
-        testAnnotationProcessor 'org.projectlombok:lombok'
+        // lombok
+        compileOnly("org.projectlombok:lombok")
+        annotationProcessor("org.projectlombok:lombok")
+        testCompileOnly("org.projectlombok:lombok")
+        testAnnotationProcessor("org.projectlombok:lombok")
+
+        // spring boot
+        implementation("org.springframework.boot:spring-boot-starter-web")
         testImplementation("org.springframework.boot:spring-boot-starter-test") {
             exclude module: 'junit'
         }
+
+        // commons library
+        implementation("commons-io:commons-io")
+
+        // test
+        testImplementation("org.assertj:assertj-core")
         testImplementation("org.junit.jupiter:junit-jupiter-api")
         testImplementation("org.junit.jupiter:junit-jupiter-params")
         testRuntime("org.junit.jupiter:junit-jupiter-engine")

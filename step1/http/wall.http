@@ -1,0 +1,11 @@
+POST {{step1}}/wall/gaemi
+Content-Type: application/json
+
+{
+  "content": "반갑습니다"
+}
+
+###
+
+GET {{step1}}/wall/gaemi
+Content-Type: application/json

@@ -1,0 +1,8 @@
+POST {{step2}}/user/gaemi
+Content-Type: application/json
+
+{
+  "name":"송정훈"
+}
+
+###

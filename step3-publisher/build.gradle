@@ -1,0 +1,8 @@
+dependencies {
+    implementation("org.springframework.cloud:spring-cloud-starter-aws-messaging") {
+        exclude module: "aws-java-sdk-sns"
+        exclude module: "aws-java-sdk-s3"
+        exclude module: "aws-java-sdk-cloudformation"
+    }
+}
+

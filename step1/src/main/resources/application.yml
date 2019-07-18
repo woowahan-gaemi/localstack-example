@@ -1,0 +1,5 @@
+server.port: 10000
+
+spring:
+  profiles:
+    active: local

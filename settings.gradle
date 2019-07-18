@@ -6,3 +6,7 @@ pluginManagement {
 rootProject.name = 'localstack-example'
 
 include 'step1'
+include 'step2'
+include 'step3-publisher'
+include 'step3-subscriber'
+include 'testcontainer-support'

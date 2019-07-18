@@ -1,0 +1,6 @@
+dependencies {
+    implementation project(":testcontainer-support")
+    implementation("com.amazonaws:aws-java-sdk-dynamodb")
+    implementation("com.github.derjust:spring-data-dynamodb")
+}
+

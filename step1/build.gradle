@@ -1,12 +1,6 @@
-bootJar {
-    enabled = false
-}
-jar {
-    enabled = true
-}
-
 dependencies {
-    implementation("cloud.localstack:localstack-utils")
-    implementation("org.testcontainers:localstack")
     implementation("com.amazonaws:aws-java-sdk-s3")
+    testImplementation("cloud.localstack:localstack-utils")
+    testImplementation("org.testcontainers:localstack")
+    testImplementation("org.testcontainers:junit-jupiter")
 }

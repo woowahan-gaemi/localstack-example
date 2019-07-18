@@ -1,0 +1,8 @@
+POST {{step3}}/message
+Content-Type: application/json
+
+{
+  "message":"Hello World"
+}
+
+###
